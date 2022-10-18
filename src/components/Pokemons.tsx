@@ -1,9 +1,10 @@
-import PokemonCard from './PokemonCard'
 import { useQuery } from '@tanstack/react-query'
+
+import { ReferenceResourceResponse } from 'models/ReferenceResource'
 
 import getPokemons from 'api/getPokemons'
 
-import { ReferenceResourceResponse } from 'models/ReferenceResource'
+import PokemonCard from './PokemonCard'
 
 export const Pokemons = () => {
   const { data, isLoading, error } = useQuery<ReferenceResourceResponse, Error, ReferenceResourceResponse>(

@@ -1,10 +1,10 @@
-import Pokemons from './components/Pokemons'
+import Pokemons from '../components/Pokemons'
 
-const App = () => (
+const Home = () => (
   <>
     <h1 className="my-4 text-2xl font-semibold text-center">Pokemon App</h1>
     <Pokemons />
   </>
 )
 
-export default App
+export default Home
