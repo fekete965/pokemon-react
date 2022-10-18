@@ -518,8 +518,21 @@ video {
   margin-bottom: 1rem;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .flex {
@@ -558,8 +571,16 @@ video {
   width: 100%;
 }
 
+.min-w-\[10rem\] {
+  min-width: 10rem;
+}
+
 .max-w-\[10rem\] {
   max-width: 10rem;
+}
+
+.max-w-\[15rem\] {
+  max-width: 15rem;
 }
 
 @keyframes pulse {
@@ -631,6 +652,16 @@ video {
   line-height: 2rem;
 }
 
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -641,6 +672,11 @@ video {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 .transition-all {
