@@ -6,7 +6,7 @@
   "trailingComma": "all",
   "arrowParens": "avoid",
   "semi": false,
-  "importOrder": ["^react*", "^api*", "^models*"],
+  "importOrder": ["^react*", "^@tan*", "models/(.*)$", "api/(.*)$", "components/(.*)$", "^[./]"],
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
