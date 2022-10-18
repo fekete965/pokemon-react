@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 
 import { FC, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import fetchPokemonByUrl from 'api/fetchPokemonByUrl'
 
@@ -45,10 +46,12 @@ export const PokemonCard: FC<Props> = ({ url }) => {
   }
 
   return (
-    <div className="flex flex-col w-full p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-100 hover:shadow-lg transition-all">
+    <Link
+      className="flex flex-col w-full p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-100 hover:shadow-lg transition-all"
+      to={`/pokemons/${data.id}`}>
       <h1 className="text-sm md:text-base font-bold capitalize text-center">{data.name}</h1>
       <img className="w-full h-full" src={data.sprites.front_default} alt={data.name} />
-    </div>
+    </Link>
   )
 }
 
