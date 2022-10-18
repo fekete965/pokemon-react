@@ -1,11 +1,11 @@
-import { useMutation } from '@tanstack/react-query'
-
 import { FC, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import fetchPokemonByUrl from 'api/fetchPokemonByUrl'
+import { useMutation } from '@tanstack/react-query'
 
 import { Pokemon } from 'models/Pokemon'
+
+import fetchPokemonByUrl from 'api/fetchPokemonByUrl'
 
 const PlaceholderPokemonCard = () => (
   <div className="animate-pulse flex flex-col w-full min-h-[10rem] max-h-[14rem] p-4 border-2 rounded-lg">
