@@ -7,6 +7,11 @@ import { Pokemon } from 'models/Pokemon'
 
 import fetchPokemonByUrl from 'api/fetchPokemonByUrl'
 
+import StarIcon from 'icons/StarIcon'
+import StarIconSolid from 'icons/StarIconSolid'
+
+import { useFavourites } from 'context/FavouritesContext'
+
 const PlaceholderPokemonCard = () => (
   <div className="animate-pulse flex flex-col w-full min-h-[10rem] max-h-[14rem] p-4 border-2 rounded-lg">
     <div className="h-2 mx-auto w-full max-w-[10rem] bg-gray-400 rounded"></div>
@@ -19,6 +24,7 @@ type Props = {
 }
 
 export const PokemonCard: FC<Props> = ({ url }) => {
+  const { addToFavourites, isFavourite, removeFromFavourites } = useFavourites()
   const { data, isLoading, mutate, error } = useMutation<Pokemon, Error, string>(fetchPokemonByUrl)
 
   useEffect(() => {
@@ -37,11 +43,28 @@ export const PokemonCard: FC<Props> = ({ url }) => {
     return <div className="pokemon-card-container">No data found :(</div>
   }
 
+  const isFavouritePokemon = isFavourite(data.id)
+  const handleAddFavourite = () => addToFavourites(data.id)
+
+  const handleRemoveFavourite = () => removeFromFavourites(data.id)
+
   return (
-    <Link className="pokemon-card-link" to={`/pokemons/${data.id}`}>
-      <h1 className="pokemon-card-title">{data.name}</h1>
-      <img className="w-full" src={data.sprites.front_default} alt={data.name} />
-    </Link>
+    <div className="pokemon-card-link">
+      <div className="flex">
+        <h1 className="pokemon-card-title">{data.name}</h1>
+        <div className="pokemon-card-icon-container">
+          {isFavouritePokemon ? (
+            <StarIconSolid onClick={handleRemoveFavourite} />
+          ) : (
+            <StarIcon onClick={handleAddFavourite} />
+          )}
+        </div>
+      </div>
+      <img className="w-full select-none" src={data.sprites.front_default} alt={data.name} />
+      <Link className="button" to={`/pokemons/${data.id}`}>
+        More info
+      </Link>
+    </div>
   )
 }
 
