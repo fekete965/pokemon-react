@@ -22,7 +22,7 @@ export const Pokemons = () => {
   return (
     <div className="m-4">
       <div className="mt-2 flex justify-end">
-        <label className="label self-center" htmlFor="items-per-page">
+        <label className="label self-center mr-2" htmlFor="items-per-page">
           Items per page:
         </label>
         <select
