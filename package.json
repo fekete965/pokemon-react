@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build:css": "tailwindcss -m -i ./styles/app.css -o src/styles/app.css",
+    "build:css": "tailwindcss -m -i ./src/styles/input.css -o src/styles/app.css",
     "build": "pnpm run build:css && tsc && vite build",
-    "dev:css": "tailwindcss -w -i ./styles/app.css -o src/styles/app.css",
+    "dev:css": "tailwindcss -w -i ./src/styles/input.css -o src/styles/app.css",
     "dev": "concurrently \"pnpm run dev:css\" \"vite\"",
     "preview": "vite preview"
   },

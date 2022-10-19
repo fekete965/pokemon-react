@@ -12,7 +12,6 @@ export default defineConfig({
       components: path.resolve(__dirname, 'src', 'components'),
       models: path.resolve(__dirname, 'models'),
       routes: path.resolve(__dirname, 'src', 'routes'),
-      styles: path.resolve(__dirname, 'styles'),
       utils: path.resolve(__dirname, 'utils'),
     },
   },
