@@ -3,7 +3,7 @@ import { Outlet, useNavigate } from 'react-router-dom'
 
 import { useDebouncedCallback } from 'use-debounce'
 
-import Navbar from '../components/Navbar'
+import Navbar from 'components/Navbar'
 
 const Pokemons = () => {
   const navigate = useNavigate()

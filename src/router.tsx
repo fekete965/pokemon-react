@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import Pokemon from './components/PokemonEntity'
+import PokemonEntity from 'components/PokemonEntity'
 
-import NotFound from './routes/notFound'
-import Pokemons from './routes/pokemons'
-import Root from './routes/root'
+import NotFound from 'routes/notFound'
+import Pokemons from 'routes/pokemons'
+import Root from 'routes/root'
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ':pokemonId',
-        element: <Pokemon />,
+        element: <PokemonEntity />,
       },
     ],
   },

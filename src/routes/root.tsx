@@ -1,5 +1,5 @@
-import Navbar from '../components/Navbar'
-import Pokemons from '../components/Pokemons'
+import Navbar from 'components/Navbar'
+import Pokemons from 'components/Pokemons'
 
 const Home = () => (
   <>
