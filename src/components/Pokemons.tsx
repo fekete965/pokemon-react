@@ -1,51 +1,11 @@
-import { SyntheticEvent, useEffect, useState } from 'react'
-
-import { useQuery, useQueryClient } from '@tanstack/react-query'
-
-import { ReferenceResourceResponse } from 'models/ReferenceResource'
-
-import getPokemons from 'api/getPokemons'
+import { usePokemonsWithPagination } from 'utils/hooks'
+import { ItemsPerPage } from 'utils/index'
 
 import PokemonCard from './PokemonCard'
 
-const calculateMaxPageNum = (totalItems: number, itemsPerPage: number) => {
-  return Math.floor(totalItems / itemsPerPage) + 1
-}
-
 export const Pokemons = () => {
-  const queryClient = useQueryClient()
-  const [page, setPage] = useState<number>(0)
-  const [limit, setLimit] = useState<number>(12)
-
-  const { data, isLoading, error } = useQuery<ReferenceResourceResponse, Error, ReferenceResourceResponse>(
-    ['pokemons', page, limit],
-    () => getPokemons(page * limit, limit),
-    { keepPreviousData: true },
-  )
-
-  const totalPage = data?.count ? calculateMaxPageNum(data.count, limit) : 0
-
-  const changeLimit = (event: SyntheticEvent<HTMLSelectElement>) => {
-    setLimit(parseInt(event.currentTarget.value, 10))
-  }
-
-  const loadPrevPage = () => {
-    if (data?.previous) {
-      setPage(p => Math.max(0, p - 1))
-    }
-  }
-
-  const loadNextPage = () => {
-    if (data?.next) {
-      setPage(p => Math.min(totalPage, p + 1))
-    }
-  }
-
-  useEffect(() => {
-    if (data?.next) {
-      queryClient.prefetchQuery(['pokemons', page, limit], () => getPokemons(page * limit, limit))
-    }
-  }, [data?.next, page, limit, queryClient])
+  const { error, changeLimit, data, limit, loadNextPage, loadPrevPage, isLoading, totalPage } =
+    usePokemonsWithPagination()
 
   if (!data && isLoading) {
     return <div className="m-4">Loading...</div>
@@ -87,10 +47,11 @@ export const Pokemons = () => {
           name="items-per-page"
           onChange={changeLimit}
           defaultValue={limit}>
-          <option value="12">12</option>
-          <option value="24">24</option>
-          <option value="36">36</option>
-          <option value="48">48</option>
+          {Object.entries(ItemsPerPage).map(([key, value]) => (
+            <option key={key} value={value}>
+              {key}
+            </option>
+          ))}
         </select>
       </div>
       <div className="mt-2 grid grid-cols-9">
