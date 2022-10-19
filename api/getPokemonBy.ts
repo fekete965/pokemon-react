@@ -1,7 +1,9 @@
 import { Pokemon } from 'models/Pokemon'
 
-export const getPokemonBy = (nameOrId: string): Promise<Pokemon> => {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${nameOrId}`).then(resp => resp.json())
+import { request } from './requests'
+
+export const getPokemonBy = (nameOrId: string) => {
+  return request<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${nameOrId}`)
 }
 
 export default getPokemonBy

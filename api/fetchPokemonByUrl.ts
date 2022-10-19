@@ -1,5 +1,9 @@
 import { Pokemon } from 'models/Pokemon'
 
-export const fetchPokemonByUrl = (url: string): Promise<Pokemon> => fetch(url).then(resp => resp.json())
+import { request } from './requests'
+
+export const fetchPokemonByUrl = (url: string) => {
+  return request<Pokemon>(url)
+}
 
 export default fetchPokemonByUrl
