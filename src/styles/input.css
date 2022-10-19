@@ -40,11 +40,15 @@
   }
 
   .pokemon-card-title {
-    @apply text-sm font-bold capitalize text-center;
+    @apply text-sm py-2 font-bold capitalize text-center;
+  }
+
+  .pokemon-card-icon-container {
+    @apply flex justify-center items-center ml-2;
   }
 
   .pokemon-card-link {
-    @apply flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100 hover:shadow-lg transition-all p-4 border-2 rounded-lg;
+    @apply flex flex-col justify-center items-center hover:bg-gray-100 hover:shadow-lg transition-all p-4 border-2 rounded-lg;
   }
 
   .pokemon-entity-container {

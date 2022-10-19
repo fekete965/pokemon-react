@@ -9,7 +9,9 @@ export default defineConfig({
     alias: {
       api: path.resolve(__dirname, 'api'),
       assets: path.resolve(__dirname, 'src', 'assets'),
+      context: path.resolve(__dirname, 'src', 'context'),
       components: path.resolve(__dirname, 'src', 'components'),
+      icons: path.resolve(__dirname, 'src', 'icons'),
       models: path.resolve(__dirname, 'models'),
       routes: path.resolve(__dirname, 'src', 'routes'),
       utils: path.resolve(__dirname, 'utils'),

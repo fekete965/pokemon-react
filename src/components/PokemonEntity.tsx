@@ -7,6 +7,8 @@ import { Pokemon } from 'models/Pokemon'
 
 import { getPokemonBy } from 'api/index'
 
+import FavouriteMarker from './FavouriteMarker'
+
 const PokemonEntity = () => {
   const { pokemonId } = useParams()
 
@@ -32,9 +34,12 @@ const PokemonEntity = () => {
 
   return (
     <div className="pokemon-entity-container">
-      <div className="pokemon-entity-image-container">
+      <div className="pokemon-entity-image-container relative">
         <img className="pokemon-entity-image" src={data.sprites.front_default} alt={data.name} />
         <img className="pokemon-entity-image" src={data.sprites.back_default} alt={data.name} />
+        <div className="absolute right-1 top-1">
+          <FavouriteMarker id={data.id} />
+        </div>
       </div>
       <div className="pokemon-entity-info-container">
         <div className="pokemon-entity-basic-info">

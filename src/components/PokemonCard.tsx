@@ -7,6 +7,8 @@ import { Pokemon } from 'models/Pokemon'
 
 import fetchPokemonByUrl from 'api/fetchPokemonByUrl'
 
+import FavouriteMarker from './FavouriteMarker'
+
 const PlaceholderPokemonCard = () => (
   <div className="animate-pulse flex flex-col w-full min-h-[10rem] max-h-[14rem] p-4 border-2 rounded-lg">
     <div className="h-2 mx-auto w-full max-w-[10rem] bg-gray-400 rounded"></div>
@@ -38,10 +40,18 @@ export const PokemonCard: FC<Props> = ({ url }) => {
   }
 
   return (
-    <Link className="pokemon-card-link" to={`/pokemons/${data.id}`}>
-      <h1 className="pokemon-card-title">{data.name}</h1>
-      <img className="w-full" src={data.sprites.front_default} alt={data.name} />
-    </Link>
+    <div className="pokemon-card-link">
+      <div className="flex">
+        <h1 className="pokemon-card-title">{data.name}</h1>
+        <div className="pokemon-card-icon-container">
+          <FavouriteMarker id={data.id} />
+        </div>
+      </div>
+      <img className="w-full select-none" src={data.sprites.front_default} alt={data.name} />
+      <Link className="button" to={`/pokemons/${data.id}`}>
+        More info
+      </Link>
+    </div>
   )
 }
 
