@@ -1,4 +1,4 @@
 # pokemon-react
 Pokemon project using react
 
-[Deployed project's url](https://pokemon-react-lyart.vercel.app/)
+[Click here to see the deployed project](https://pokemon-react-lyart.vercel.app/)
