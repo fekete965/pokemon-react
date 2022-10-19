@@ -20,6 +20,7 @@
     "paths": {
       "api/*": ["./api/*"],
       "assets/*": ["./src/assets/*"],
+      "context/*": ["./src/context/*"],
       "components/*": ["./src/components/*"],
       "models/*": ["./models/*"],
       "routes/*": ["./src/routes/*"],
