@@ -50,7 +50,7 @@ export const PokemonCard: FC<Props> = ({ url }) => {
       className="flex flex-col w-full p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-100 hover:shadow-lg transition-all"
       to={`/pokemons/${data.id}`}>
       <h1 className="text-sm md:text-base font-bold capitalize text-center">{data.name}</h1>
-      <img className="w-full h-full" src={data.sprites.front_default} alt={data.name} />
+      <img className="w-full" src={data.sprites.front_default} alt={data.name} />
     </Link>
   )
 }
