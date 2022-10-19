@@ -6,7 +6,7 @@ export const StarIconSolid = (props: Props) => (
     color="#EAB308"
     viewBox="0 0 24 24"
     fill="currentColor"
-    className="w-6 h-6"
+    className="w-6 h-6 cursor-pointer"
     {...props}>
     <path
       fillRule="evenodd"

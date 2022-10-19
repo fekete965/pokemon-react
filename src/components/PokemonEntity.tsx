@@ -7,7 +7,13 @@ import { Pokemon } from 'models/Pokemon'
 
 import { getPokemonBy } from 'api/index'
 
+import StarIcon from 'icons/StarIcon'
+import StarIconSolid from 'icons/StarIconSolid'
+
+import { useFavourites } from 'context/FavouritesContext'
+
 const PokemonEntity = () => {
+  const { addToFavourites, isFavourite, removeFromFavourites } = useFavourites()
   const { pokemonId } = useParams()
 
   const { data, isLoading, error, mutate } = useMutation<Pokemon, Error, string>([pokemonId], getPokemonBy)
@@ -30,11 +36,23 @@ const PokemonEntity = () => {
     return <div className="no-data-container">😞 No data found</div>
   }
 
+  const isFavouritePokemon = isFavourite(data.id)
+  const handleAddFavourite = () => addToFavourites(data.id)
+
+  const handleRemoveFavourite = () => removeFromFavourites(data.id)
+
   return (
     <div className="pokemon-entity-container">
-      <div className="pokemon-entity-image-container">
+      <div className="pokemon-entity-image-container relative">
         <img className="pokemon-entity-image" src={data.sprites.front_default} alt={data.name} />
         <img className="pokemon-entity-image" src={data.sprites.back_default} alt={data.name} />
+        <div className="absolute right-1 top-1">
+          {isFavouritePokemon ? (
+            <StarIconSolid onClick={handleRemoveFavourite} />
+          ) : (
+            <StarIcon onClick={handleAddFavourite} />
+          )}
+        </div>
       </div>
       <div className="pokemon-entity-info-container">
         <div className="pokemon-entity-basic-info">
