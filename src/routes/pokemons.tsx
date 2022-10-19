@@ -21,32 +21,13 @@ const Pokemons = () => {
   return (
     <>
       <Navbar />
-      <div className="p-4">
-        <h1 className="text-2xl font-semibold text-center">Your pokemon</h1>
+      <div className="px-4">
+        <h1 className="title">Your pokemon</h1>
         <div className="flex mt-4">
-          <label className="flex justify-center items-center font-semibold text-xl px-2" htmlFor="search">
+          <label className="label mr-2 self-center" htmlFor="search">
             Search:
           </label>
-          <input
-            className="
-          w-full
-          px-4
-          py-2
-          text-xl
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-        "
-            name="search"
-            value={search}
-            onChange={onChange}
-          />
+          <input className="input" name="search" value={search} onChange={onChange} />
         </div>
       </div>
       <Outlet />

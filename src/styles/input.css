@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .title {
+    @apply my-4 text-2xl font-semibold text-center;
+  }
+
+  .title--big {
+    @apply title text-4xl;
+  }
+
+  .nav-list {
+    @apply flex flex-row;
+  }
+
+  .nav-item-container {
+    @apply px-4 py-2 font-semibold hover:text-blue-700;
+  }
+
+  .nav-item-active {
+    @apply font-semibold text-blue-700;
+  }
+
+  .no-data-container {
+    @apply text-center text-blue-500 text-2xl font-semibold;
+  }
+
+  .loading-container {
+    @apply text-center text-yellow-500 text-2xl font-semibold;
+  }
+
+  .error-container {
+    @apply text-center text-red-500 text-2xl font-semibold;
+  }
+
+  .pokemon-card-container {
+    @apply flex justify-center items-center w-full min-h-[10rem] max-h-[15rem] p-4 border-2 rounded-lg;
+  }
+
+  .pokemon-card-title {
+    @apply text-sm font-bold capitalize text-center;
+  }
+
+  .pokemon-card-link {
+    @apply flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100 hover:shadow-lg transition-all p-4 border-2 rounded-lg;
+  }
+
+  .pokemon-entity-container {
+    @apply grid grid-cols-3 m-4 border-2 rounded-lg;
+  }
+
+  .pokemon-entity-image-container {
+    @apply grid grid-cols-2 border-r-2;
+  }
+
+  .pokemon-entity-image {
+    @apply m-0 w-full max-w-[15rem] col-span-1;
+  }
+
+  .pokemon-entity-basic-info {
+    @apply border-r-2 px-4 py-2;
+  }
+
+  .pokemon-entity-info-container {
+    @apply grid grid-cols-2 col-span-2;
+  }
+
+  .pokemons-action-button-container {
+    @apply mt-2 grid grid-cols-9;
+  }
+
+  .pokemons-card-container {
+    @apply grid gap-4 grid-cols-2 mt-4;
+  }
+
+  @media (min-width: 540px) {
+    .pokemons-card-container {
+      @apply grid-cols-4;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pokemons-card-container {
+      @apply grid-cols-6;
+    }
+  }
+
+  @media (min-width: 1420px) {
+    .pokemons-card-container {
+      @apply grid-cols-8;
+    }
+  }
+
+  .label {
+    @apply text-base font-bold capitalize text-center;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+  }
+
+  .select-input {
+    @apply appearance-none px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+  }
+
+  .button {
+    @apply px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+  }
+}

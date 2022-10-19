@@ -30,26 +30,16 @@ export const PokemonCard: FC<Props> = ({ url }) => {
   }
 
   if (error) {
-    return (
-      <div className="flex justify-center items-center w-full min-h-[10rem] max-h-[15rem] p-4 border-2 rounded-lg">
-        Something went wrong: {error.message}
-      </div>
-    )
+    return <div className="pokemon-card-container">Something went wrong: {error.message}</div>
   }
 
   if (!data) {
-    return (
-      <div className="flex justify-center items-center w-full min-h-[10rem] max-h-[15rem] p-4 border-2 rounded-lg">
-        No data found :(
-      </div>
-    )
+    return <div className="pokemon-card-container">No data found :(</div>
   }
 
   return (
-    <Link
-      className="flex flex-col w-full p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-100 hover:shadow-lg transition-all"
-      to={`/pokemons/${data.id}`}>
-      <h1 className="text-sm md:text-base font-bold capitalize text-center">{data.name}</h1>
+    <Link className="pokemon-card-link" to={`/pokemons/${data.id}`}>
+      <h1 className="pokemon-card-title">{data.name}</h1>
       <img className="w-full" src={data.sprites.front_default} alt={data.name} />
     </Link>
   )

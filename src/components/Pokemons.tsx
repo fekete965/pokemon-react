@@ -8,41 +8,25 @@ export const Pokemons = () => {
     usePokemonsWithPagination()
 
   if (!data && isLoading) {
-    return <div className="m-4">Loading...</div>
+    return <div className="loading-container">💿 Loading...</div>
   }
 
   if (error) {
-    return <div className="m-4">Something went wrong: {error.message}</div>
+    return <div className="error-container">❗ Something went wrong: {error.message}</div>
   }
 
   if (!data) {
-    return <div className="m-4">No data found</div>
+    return <div className="no-data-container">😞 No data found</div>
   }
 
   return (
     <div className="m-4">
       <div className="mt-2 flex justify-end">
-        <label className="font-semibold self-center px-2" htmlFor="items-per-page">
+        <label className="label self-center" htmlFor="items-per-page">
           Items per page:
         </label>
         <select
-          className="
-            appearance-none
-            px-3
-            py-1.5
-            text-base
-            font-normal
-            text-gray-700
-            bg-white bg-clip-padding bg-no-repeat
-            border border-solid border-gray-300
-            rounded
-            transition
-            ease-in-out
-            m-0
-            focus:text-gray-700
-            focus:bg-white
-            focus:border-blue-600
-            focus:outline-none"
+          className="select-input"
           aria-label="Items per page"
           name="items-per-page"
           onChange={changeLimit}
@@ -54,24 +38,16 @@ export const Pokemons = () => {
           ))}
         </select>
       </div>
-      <div className="mt-2 grid grid-cols-9">
-        <button
-          className="col-span-3 col-end-4 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-          disabled={!data?.previous}
-          type="button"
-          onClick={loadPrevPage}>
+      <div className="pokemons-action-button-container">
+        <button className="button col-span-3 col-end-4" disabled={!data?.previous} type="button" onClick={loadPrevPage}>
           Prevous page
         </button>
         <div className="self-center font-semibold text-center col-start-4 col-end-7">Total Pages: {totalPage}</div>
-        <button
-          className="col-end-10 col-span-3 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-          disabled={!data?.next}
-          type="button"
-          onClick={loadNextPage}>
+        <button className="button col-span-3 col-end-10" disabled={!data?.next} type="button" onClick={loadNextPage}>
           Next page
         </button>
       </div>
-      <ul className="mt-2 grid gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+      <ul className="pokemons-card-container">
         {data?.results.map(d => (
           <PokemonCard key={d.name} url={d.url} />
         ))}

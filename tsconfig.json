@@ -23,7 +23,6 @@
       "components/*": ["./src/components/*"],
       "models/*": ["./models/*"],
       "routes/*": ["./src/routes/*"],
-      "styles/*": ["./styles/*"],
       "utils/*": ["./utils/*"]
     },
     "resolveJsonModule": true,
