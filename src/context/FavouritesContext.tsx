@@ -21,27 +21,24 @@ export const FavouritesProvider = ({ children }: { children: ReactElement }) => 
 
   const addToFavourites = useCallback(
     (id: number) => {
-      if (!isFavourite(id)) return
+      if (isFavourite(id)) return
       setFavourites(fav => [...fav, id])
     },
-    [favourites],
+    [isFavourite],
   )
 
-  const removeFromFavourites = useCallback(
-    (id: number) => {
-      setFavourites(fav => fav.filter(fav => fav !== id))
-    },
-    [favourites],
-  )
+  const removeFromFavourites = useCallback((id: number) => {
+    setFavourites(fav => fav.filter(fav => fav !== id))
+  }, [])
 
   const value = useMemo(
     () => ({
       addToFavourites,
-      isFavourite,
       favourites,
+      isFavourite,
       removeFromFavourites,
     }),
-    [favourites],
+    [addToFavourites, favourites, isFavourite, removeFromFavourites],
   )
 
   return <FavouritesContext.Provider value={value}>{children}</FavouritesContext.Provider>
