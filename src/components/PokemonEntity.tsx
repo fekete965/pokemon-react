@@ -19,53 +19,50 @@ const PokemonEntity = () => {
   }, [pokemonId])
 
   if (!data && isLoading) {
-    return <div className="m-4">Loading...</div>
+    return <div className="loading-container">💿 Loading...</div>
   }
 
   if (error) {
-    return <div className="m-4">Something went wrong: {error.message}</div>
+    return <div className="error-container">❗ Something went wrong: {error.message}</div>
   }
 
   if (!data) {
-    return <div className="m-4">No data found</div>
+    return <div className="no-data-container">😞 No data found</div>
   }
 
   return (
-    <div className="grid grid-cols-3 mx-4 border-2 rounded-lg cursor-pointe">
-      <div className="grid grid-cols-2 border-r-2">
-        <img className="m-0 w-full max-w-[15rem] col-span-1" src={data.sprites.front_default} alt={data.name} />
-        <img className="m-0 w-full max-w-[15rem] col-span-1" src={data.sprites.back_default} alt={data.name} />
+    <div className="pokemon-entity-container">
+      <div className="pokemon-entity-image-container">
+        <img className="pokemon-entity-image" src={data.sprites.front_default} alt={data.name} />
+        <img className="pokemon-entity-image" src={data.sprites.back_default} alt={data.name} />
       </div>
-      <div className="grid grid-cols-2 col-span-2">
-        <div className="border-r-2 px-4 py-2">
-          <label className="underline text-sm md:text-base font-bold capitalize text-center">Basic Info:</label>
+      <div className="pokemon-entity-info-container">
+        <div className="pokemon-entity-basic-info">
+          <label className="label underline">Basic Info:</label>
           <ul>
             <li>
-              <label className="text-sm md:text-base font-bold capitalize text-center">Name:</label> {data.name}
+              <label className="label">Name:</label> {data.name}
             </li>
             <li>
-              <label className="text-sm md:text-base font-bold capitalize text-center">Height:</label> {data.height}
+              <label className="label">Height:</label> {data.height}
             </li>
             <li>
-              <label className="text-sm md:text-base font-bold capitalize text-center">Width:</label> {data.weight}
+              <label className="label">Width:</label> {data.weight}
             </li>
             <li>
-              <label className="text-sm md:text-base font-bold capitalize text-center">Base Experience:</label>{' '}
-              {data.base_experience}
+              <label className="label">Base Experience:</label> {data.base_experience}
             </li>
             <li>
-              <label className="text-sm md:text-base font-bold capitalize text-center">Abilities:</label>{' '}
-              {data.abilities.map(_ => _.ability.name).join(', ')}
+              <label className="label">Abilities:</label> {data.abilities.map(_ => _.ability.name).join(', ')}
             </li>
           </ul>
         </div>
         <div className="px-4 py-2">
-          <label className="underline text-sm md:text-base font-bold capitalize text-center">Stats:</label>
+          <label className="label underline">Stats:</label>
           <ul>
             {data.stats.map(s => (
               <li key={s.stat.name}>
-                <label className="text-sm md:text-base font-bold capitalize text-center">{s.stat.name}:</label>{' '}
-                {s.base_stat}
+                <label className="label">{s.stat.name}:</label> {s.base_stat}
               </li>
             ))}
           </ul>
