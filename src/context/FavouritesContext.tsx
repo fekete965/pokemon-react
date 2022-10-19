@@ -1,4 +1,6 @@
-import { ReactElement, createContext, useCallback, useContext, useMemo, useState } from 'react'
+import { ReactElement, createContext, useCallback, useContext, useMemo } from 'react'
+
+import { useLocalStorage } from 'utils/hooks/index'
 
 type FavouritesContextValue = {
   addToFavourites: (id: number) => void
@@ -10,7 +12,7 @@ type FavouritesContextValue = {
 const FavouritesContext = createContext<FavouritesContextValue | undefined>(undefined)
 
 export const FavouritesProvider = ({ children }: { children: ReactElement }) => {
-  const [favourites, setFavourites] = useState<number[]>([])
+  const [favourites, setFavourites] = useLocalStorage<number[]>('favourite-pokemons', [])
 
   const isFavourite = useCallback(
     (id: number) => {
