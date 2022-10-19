@@ -13,6 +13,7 @@
     "models/(.*)$",
     "api/(.*)$",
     "components/(.*)$",
+    "icons/(.*)$",
     "routes/(.*)$",
     "context/(.*)$",
     "utils/(.*)$",

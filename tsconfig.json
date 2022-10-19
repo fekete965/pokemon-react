@@ -22,6 +22,7 @@
       "assets/*": ["./src/assets/*"],
       "context/*": ["./src/context/*"],
       "components/*": ["./src/components/*"],
+      "icons/*": ["./src/icons/*"],
       "models/*": ["./models/*"],
       "routes/*": ["./src/routes/*"],
       "utils/*": ["./utils/*"]
